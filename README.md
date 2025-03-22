@@ -4,7 +4,7 @@ A dynamic and visually captivating portfolio website built with **Next.js**, **R
 
 ## Live Demo
 
-Check out the live portfolio: [Portfolio Website](https://your-live-portfolio-link.com)
+Check out the live portfolio: [Portfolio Website](https://icefolio.vercel.app)
 
 ## Features
 
