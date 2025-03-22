@@ -110,7 +110,7 @@ function About() {
       {/* About Info Section */}
       <div className="container mx-auto flex flex-col md:flex-row items-center md:px-8 lg:px-8 px-2">
         {/* Image */}
-        <div className="md:w-1/2  rounded-lg shadow-lg h-[500px]  w-full mb-6 md:mb-0">
+        <div className="md:w-1/2 shadow-amber-500  rounded-lg shadow h-[500px]  w-full mb-6 md:mb-0">
 <GLBViewer />
         </div>
 
@@ -160,7 +160,7 @@ function About() {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="hoverable flex cursor-pointer hover:shadow-amber-50 items-center space-x-3 bg-inherit p-4 rounded-lg text-[var(--color-text-dark)] shadow-2xl"
+              className="hoverable flex cursor-pointer hover:shadow-amber-50 items-center space-x-3 bg-inherit p-4 rounded-lg text-[var(--color-text-dark)] shadow-amber-500 shadow hover:shadow-2xl"
             >
               <span className="text-3xl text-[var(--color-btn-primary)]">
                 {tech.icon}

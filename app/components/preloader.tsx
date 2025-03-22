@@ -4,9 +4,11 @@ const Preloader: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+
     // Simulating loading completion
-    const timer = setTimeout(() => setIsVisible(false), 500);
-    return () => clearTimeout(timer);
+    setIsVisible(false)
+    // const timer = setTimeout(() => setIsVisible(false), 50);
+    // return () => clearTimeout(timer);
   }, []);
 
   if (!isVisible) return null;

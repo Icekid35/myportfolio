@@ -19,7 +19,7 @@ function Intro() {
   return (
     <section
       id="intro"
-      className="relative container m-auto  flex flex-col justify-center items-center min-h-screen"
+      className="relative container m-auto  flex flex-col justify-center items-center min-h-[98vh]"
     >
       <div className="w-full flex flex-col md:flex-row items-center md:justify-between px-12">
         <div className="text-center md:text-left md:pl-[3vw]">

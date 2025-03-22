@@ -261,7 +261,7 @@ export default function Works() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-inherit  rounded-lg shadow-sm p-0 md:p-4   overflow-hidden flex cursor-pointer w-full"
+            className="bg-inherit  rounded-lg shadow-sm  p-0 md:p-4   overflow-hidden flex cursor-pointer w-full"
             onClick={() => openModal(project)}
           >
             <div className="w-1/2 flex h-full object-cover ">
