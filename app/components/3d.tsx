@@ -1,34 +1,27 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useEffect, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Box3, Vector3 } from "three";
+import { Box3 } from "three";
 
 // Model Component
 const Model = ({ url }: { url: string }) => {
   const { scene } = useGLTF(url);
-  const [adjusted, setAdjusted] = useState(false);
 
   useEffect(() => {
-    if (scene && !adjusted) {
-      // Compute bounding box
+    if (scene) {
+      // Apply a uniform scale
+      const scale = 5.5;
+      scene.scale.set(scale, scale, scale);
+
+      // Calculate the bounding box of the scene
       const box = new Box3().setFromObject(scene);
-      const size = new Vector3();
-      box.getSize(size);
-
-      scene.scale.set(5.5, 5.5, 5.5);
-
-      // Recalculate bounding box after scaling
-      box.setFromObject(scene);
-      const boxBottom = box.min.y * 9;
-
-      // Shift the model so its bottom aligns with y = 0
-      scene.position.y -= boxBottom;
-
-      setAdjusted(true);
+      // Compute how much to move the model so its bottom aligns with Y=0.
+      const yOffset = -box.min.y * (scale-1.2);
+      scene.position.y += yOffset;
     }
-  }, [scene, adjusted]);
+  }, [scene]);
 
   return <primitive object={scene} />;
 };
@@ -43,7 +36,13 @@ const GLBViewer = () => {
         <Suspense fallback={null}>
           <Model url="/models/avater.glb" />
         </Suspense>
-        <OrbitControls enableZoom={false} enableRotate enablePan autoRotate autoRotateSpeed={1.0} />
+        <OrbitControls
+          enableZoom={false}
+          enableRotate
+          enablePan
+          autoRotate
+          autoRotateSpeed={1.0}
+        />
       </Canvas>
     </div>
   );

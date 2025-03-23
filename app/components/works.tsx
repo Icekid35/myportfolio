@@ -50,6 +50,7 @@ import {
   SiD3Dotjs,
 } from "react-icons/si";
 import { FaArrowTrendUp, FaX } from "react-icons/fa6";
+import Image from "next/image";
 
 const technologies = [
   // Core Languages & Frameworks
@@ -264,13 +265,13 @@ export default function Works() {
             className="bg-inherit  rounded-lg shadow-sm  p-0 md:p-4   overflow-hidden flex cursor-pointer w-full"
             onClick={() => openModal(project)}
           >
-            <div className="w-1/2 flex h-full object-cover ">
-            <img
+            <div className="w-1/2 relative flex h-full object-cover ">
+            <Image
               src={project.image}
               alt={project.title}
               className="w-full max-w-full h-full  bg-gray-800  object-cover"
-              loading="lazy"
-            /></div>
+              fill
+/></div>
             <div className="md:px-4 lg:px-4 px-2 w-1/2 gap-4  h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-[var(--color-text-dark)]">
