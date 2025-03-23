@@ -1,43 +1,50 @@
-"use client";
+"use client"
+import React from "react";
+import "@google/model-viewer/lib/model-viewer";
 
-import React, { useEffect, Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Box3, Vector3 } from "three";
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "model-viewer": ModelViewerJSX &
+        React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
+  }
+}
 
-// Model Component
-const Model = ({ url }: { url: string }) => {
-  const { scene } = useGLTF(url);
+interface ModelViewerJSX {
+  src: string;
+  poster?: string;
+  iosSrc?: string;
+  seamlessPoster?: boolean;
+  autoplay?: boolean;
+  environmentImage?: string;
+  exposure?: string;
+  interactionPromptThreshold?: string;
+  shadowIntensity?: string;
+  ar?: boolean;
+  arModes?: string;
+  autoRotate?: boolean;
+  cameraControls?: boolean;
+  cameraOrbit?: string;
+  alt?: string;
+  sx?: any;
+}
+const Model = () => {
 
-  useEffect(() => {
-    if (!scene) return;
-    const box = new Box3().setFromObject(scene);
-    const size = box.getSize(new Vector3()); 
-    const scaleFactor = (5 / Math.max(size.x, size.y, size.z))*2; 
+  const glbSrc = "/models/avater.glb";
 
-    scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
-
-    const yOffset = -box.min.y * scaleFactor;
-    scene.position.y += yOffset;
-  }, [scene]);
-
-  return <primitive object={scene} />;
-};
-
-// Viewer Component
-const GLBViewer = () => {
   return (
-    <div className="w-full h-full flex justify-center items-end overflow-auto touch-auto">
-      <Canvas camera={{ position: [0, 2, 6], fov: 50 }}>
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[5, 5, 5]} />
-        <Suspense fallback={null}>
-          <Model url="/models/avater.glb" />
-        </Suspense>
-        <OrbitControls enableZoom={false} enableRotate enablePan autoRotate autoRotateSpeed={1.0} />
-      </Canvas>
+   <model-viewer src={glbSrc} ar ar-modes="webxr scene-viewer quick-look" className=" h-full w-full" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" auto-rotate>
+    <div className="progress-bar hide" slot="progress-bar">
+        <div className="update-bar"></div>
     </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+
+</model-viewer>
+
   );
 };
 
-export default GLBViewer;
+export default Model;
