@@ -198,3 +198,6 @@ video {
 
 
 
+model-viewer {
+  --progress-bar-color: var(--color-btn-primary);
+}
