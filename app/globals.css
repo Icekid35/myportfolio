@@ -22,7 +22,7 @@
   --base-font-size : calc(1.9rem * var(--multiplier));
   --space          : calc(3.2rem * var(--multiplier));
 
---poster-color:var(--color-body)
+--poster-color:transparent;
   /* vertical spacing 
    */
   --vspace-0_125 : calc(0.125 * var(--space));
@@ -203,5 +203,5 @@ model-viewer {
   --progress-bar-color: var(--color-btn-primary);
 }
 #default-poster{
-background-color: var(--color-body);
+background-color: transparent;
 }

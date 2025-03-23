@@ -114,7 +114,7 @@ function About() {
       {/* About Info Section */}
       <div className="container mx-auto flex flex-col md:flex-row items-center md:px-8 lg:px-8 px-2">
         {/* 3D Viewer */}
-        <div className="md:w-1/2 shadow-amber-500 rounded-lg shadow h-[400px] md:h-[500px] max-w-[95vw] md:max-w-screen w-full mb-6 md:mb-0">
+        <div className="md:w-1/2 overflow-hidden shadow-amber-500 rounded-lg shadow h-[400px] md:h-[500px] max-w-[95vw] md:max-w-screen w-full mb-6 md:mb-0">
           <GLBViewer />
         </div>
 
