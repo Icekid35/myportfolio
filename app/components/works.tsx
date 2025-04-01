@@ -134,18 +134,7 @@ const projects = [
     link: "https://iceadmin.vercel.app/",
     code: "https://github.com/Icekid35/iceadmin"
   },
-  {
-    id: "modal-03",
-    category: "Website",
-    title: "Steve Jobs Tribute Website",
-    image: "/images/steve-bio.jpg",
-    modalImage: "/images/steve-bio.gif",
-    description:
-      "A minimalist tribute website honoring Steve Jobs, designed with pure HTML and CSS. Inspired by Apple's design principles, the site features a clean black-and-white aesthetic, structured biography, achievements timeline, and an interactive image gallery.",
-    stack: ["HTML", "CSS", "Responsive Design"],
-    link: "https://steve-bio.vercel.app/",
-    code: "https://github.com/Icekid35/steve-bio"
-  },
+
   {
     id: "modal-04",
     category: "Automation",
@@ -219,7 +208,19 @@ const projects = [
     stack: ["HTML", "CSS", "PWA"],
     link: "https://bellohabeeb.vercel.app/",
     code: "https://github.com/Icekid35/portfolio"
-  }
+  },
+  {
+    id: "modal-03",
+    category: "Website",
+    title: "Steve Jobs Tribute Website",
+    image: "/images/steve-bio.jpg",
+    modalImage: "/images/steve-bio.gif",
+    description:
+      "A minimalist tribute website honoring Steve Jobs, designed with pure HTML and CSS. Inspired by Apple's design principles, the site features a clean black-and-white aesthetic, structured biography, achievements timeline, and an interactive image gallery.",
+    stack: ["HTML", "CSS", "Responsive Design"],
+    link: "https://steve-bio.vercel.app/",
+    code: "https://github.com/Icekid35/steve-bio"
+  },
   // Add more projects as needed
 ];
 
