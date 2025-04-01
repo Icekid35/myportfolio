@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
@@ -25,7 +23,8 @@ export default function RootLayout({
         {/* Open Graph / Facebook / LinkedIn */}
         <meta property="og:title" content="Bello Habeebullahi Ajetola - Full-Stack Developer & Blockchain Enthusiast" />
         <meta property="og:description" content="Explore the portfolio of Bello Habeebullahi Ajetola, a skilled full-stack developer specializing in Node.js, Next.js, TypeScript, MongoDB, and blockchain technologies." />
-        <meta property="og:image" content="https://icefolio.vercel.app/me.JPG" />
+        <meta property="og:image" content="https://icefolio.vercel.app/me/me.jpg" />
+        <meta property="og:image" content="https://icefolio.vercel.app/me/profile1.JPG" />
         <meta property="og:url" content="https://icefolio.vercel.app" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Bello Habeebullahi Ajetola" />
@@ -34,8 +33,7 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Bello Habeebullahi Ajetola - Full-Stack Developer & Blockchain Enthusiast" />
         <meta name="twitter:description" content="Explore the portfolio of Bello Habeebullahi Ajetola, a skilled full-stack developer specializing in Node.js, Next.js, TypeScript, MongoDB, and blockchain technologies." />
-        <meta name="twitter:image" content="https://icefolio.vercel.app/me.JPG" />
-        <meta name="twitter:site" content="@javascriptpro1" />
+        <meta name="twitter:image" content="https://icefolio.vercel.app/me/me.jpg" />
 
         {/* Pinterest Meta */}
         <meta name="pinterest-rich-pin" content="true" />
@@ -58,7 +56,7 @@ export default function RootLayout({
           "@type": "Person",
           "name": "Bello Habeebullahi Ajetola",
           "url": "https://icefolio.vercel.app",
-          "image": "https://icefolio.vercel.app/me.JPG",
+          "image": "https://icefolio.vercel.app/me/me.jpg",
           "jobTitle": "Full-Stack Developer",
           "worksFor": { "@type": "Organization", "name": "Freelancer" },
           "sameAs": [
