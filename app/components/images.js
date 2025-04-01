@@ -1,7 +1,7 @@
 export default [
    {
-     original: "/me/me.JPG",
-     thumbnail: "/me/me.JPG"
+     original: "/me/me.jpg",
+     thumbnail: "/me/me.jpg"
    },
    {
      original: "/me/profile.JPG",
@@ -12,12 +12,12 @@ export default [
      thumbnail: "/me/profile2.JPG"
    },
    {
-     original: "/me/profile3.JPG",
-     thumbnail: "/me/profile3.JPG"
+     original: "/me/profile3.jpg",
+     thumbnail: "/me/profile3.jpg"
    },
    {
-     original: "/me/profile4.JPG",
-     thumbnail: "/me/profile4.JPG"
+     original: "/me/profile4.jpg",
+     thumbnail: "/me/profile4.jpg"
    },
    {
      original: "/me/profile5.JPG",
