@@ -42,6 +42,16 @@ const Heading: React.FC = () => {
             </a>
           </li>
           <li className="md:border-r border-[var(--color-border)] last:border-none">
+            <a href="#works" className="block py-[var(--vspace-0_5)] px-[2.8rem] hover:text-[var(--color-1)] transition-colors">
+              Works
+            </a>
+          </li>
+          <li className="md:border-r border-[var(--color-border)] last:border-none">
+            <a href="#gallery" className="block py-[var(--vspace-0_5)] px-[2.8rem] hover:text-[var(--color-1)] transition-colors">
+            Gallery
+            </a>
+          </li>
+          <li className="md:border-r border-[var(--color-border)] last:border-none">
             <a href="#contact" className="block py-[var(--vspace-0_5)] px-[2.8rem] hover:text-[var(--color-1)] transition-colors">
               Say Hello
             </a>

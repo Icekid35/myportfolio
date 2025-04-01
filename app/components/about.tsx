@@ -122,7 +122,7 @@ function About() {
         <div className="md:w-1/2 w-full md:pl-10">
           <h2 className="text-lg text-gray-400 uppercase tracking-widest">About</h2>
           <div className="mt-4 text-lg leading-relaxed">
-            Hey there! I'm Bello Habeebullahi, a passionate Full Stack Developer, Automation Engineer, and Web3 Innovator with a deep love for crafting high-performance web applications. With expertise in JavaScript, TypeScript, Node.js, React, Next.js, and cutting-edge technologies, I specialize in building scalable, efficient, and user-centric solutions.
+            Hey there! I'm Bello Habeebullahi Ajetola, a passionate Full Stack Developer, Automation Engineer, and Web3 Innovator with a deep love for crafting high-performance web applications. With expertise in JavaScript, TypeScript, Node.js, React, Next.js, and cutting-edge technologies, I specialize in building scalable, efficient, and user-centric solutions.
             <p className="mt-2">
               From developing powerful backends with Node.js & GraphQL to creating visually stunning UIs with Tailwind CSS & Three.js, I enjoy tackling complex challenges and delivering seamless digital experiences. My work isn't just about writing code—it's about engineering solutions that scale, automating workflows, and optimizing performance for real-world impact.
             </p>

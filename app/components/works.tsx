@@ -47,7 +47,7 @@ import {
   SiThreedotjs,
   SiEslint,
   SiClerk,
-  SiD3Dotjs,
+  SiD3Dotjs
 } from "react-icons/si";
 import { FaArrowTrendUp, FaX } from "react-icons/fa6";
 import Image from "next/image";
@@ -114,8 +114,8 @@ const projects = [
     id: "modal-01",
     category: "Ecommerce",
     title: "Next.js Commerce Platform",
-    image: "/images/ecormmerce.jpg", 
-    modalImage: "/images/ecormmerce.gif", 
+    image: "/images/ecormmerce.jpg",
+    modalImage: "/images/ecormmerce.gif",
     description:
       "A feature-rich e-commerce platform built with Next.js, TypeScript, and Tailwind CSS. It includes Google OAuth for user authentication and Prisma for database management, It also has a dedicated admin dashboard.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Google OAuth"],
@@ -126,52 +126,56 @@ const projects = [
     id: "modal-02",
     category: "Admin Dashboard",
     title: "E-Commerce Admin Dashboard",
-    image: "/images/iceadmin.jpg", 
-    modalImage: "/images/iceadmin.gif", 
+    image: "/images/iceadmin.jpg",
+    modalImage: "/images/iceadmin.gif",
     description:
       "A comprehensive e-commerce admin dashboard built with Next.js, Tailwind CSS, and Clerk for authentication. Features include analytics, product management, and seamless integration with monnify for payment management.Modified  to Fit modern Ecormmerce Standard",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Clerk",
-      "Prisma",
-
-    ],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "Prisma"],
     link: "https://iceadmin.vercel.app/",
     code: "https://github.com/Icekid35/iceadmin"
   },
   {
-    "id": "modal-03",
-    "category": "Website",
-    "title": "Steve Jobs Tribute Website",
-    "image": "/images/steve-bio.jpg", 
-    "modalImage": "/images/steve-bio.gif", 
-    "description":
+    id: "modal-03",
+    category: "Website",
+    title: "Steve Jobs Tribute Website",
+    image: "/images/steve-bio.jpg",
+    modalImage: "/images/steve-bio.gif",
+    description:
       "A minimalist tribute website honoring Steve Jobs, designed with pure HTML and CSS. Inspired by Apple's design principles, the site features a clean black-and-white aesthetic, structured biography, achievements timeline, and an interactive image gallery.",
-    "stack": [
-      "HTML",
-      "CSS",
-      "Responsive Design"
-    ],
-    "link": "https://steve-bio.vercel.app/",
-    "code": "https://github.com/Icekid35/steve-bio"
+    stack: ["HTML", "CSS", "Responsive Design"],
+    link: "https://steve-bio.vercel.app/",
+    code: "https://github.com/Icekid35/steve-bio"
   },
   {
-    "id": "modal-04",
-    "category": "Automation",
-    "title": "Twitter Bot",
-    "image": "/images/twitterbot.jpg", 
-    "modalImage": "/images/twitterbot.gif", 
-    "description":
+    id: "modal-04",
+    category: "Automation",
+    title: "Twitter Bot",
+    image: "/images/twitterbot.jpg",
+    modalImage: "/images/twitterbot.gif",
+    description:
       "A Multipurpose twitter bot that allows user to add account and automate actions like liking, commenting, bookmarking and Retweeting, from all the account at the same time just by Pasting a Link to the required and the bot will automatically Perform the required action on all the account.",
-    "stack": [
-      "Node.js",
-      "Puppeteer",
-      "HTML",
-      'CSS'
+    stack: ["Node.js", "Puppeteer", "HTML", "CSS"],
+    code: "https://github.com/Icekid35/twitterbot"
+  },
+  {
+    id: "modal-08",
+    category: "Attendance Tracking",
+    title: "QR Attendance Tracking PWA",
+    image: "/images/qr-attendance.jpg",
+    modalImage: "/images/qr-attendance.gif",
+    description:
+      "A Progressive Web Application (PWA) for attendance tracking using QR codes. It allows students to mark attendance by scanning QR codes, while admins manage sessions, track attendance, and generate reports. Features include access control, QR code generation, and PDF export functionality.",
+    stack: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "HTML5 QR Code",
+      "JSPDF"
     ],
-    "code": "https://github.com/Icekid35/twitterbot"
+    link: "https://ice-qr.vercel.app/",
+    code: "https://github.com/Icekid35/ice-qr"
   },
   {
     id: "modal-05",
@@ -197,36 +201,25 @@ const projects = [
     id: "modal-06",
     category: "portfolio",
     title: "Wordpress UI/UX Portfolio site",
-    image: "/images/wordpress-portfolio.jpg", 
-    modalImage: "/images/wordpress-portfolio.gif", 
+    image: "/images/wordpress-portfolio.jpg",
+    modalImage: "/images/wordpress-portfolio.gif",
     description:
       "A mordern, asthetic portfolio website built with wordpress, consisting of awesome fonts, multiple pages and a dedicated Blog. ",
-    stack: [
-      "Wordpress",
-      "WP Form",
-      "XAMPP",
-
-    ],
-
+    stack: ["Wordpress", "WP Form", "XAMPP"]
   },
-  
+
   {
-    "id": "modal-07",
-    "category": "portfolio",
-    "title": "Old Portfolio Website",
-    "image": "/images/oldportfolio.jpg", 
-    "modalImage": "/images/oldportfolio.gif", 
-    "description":
+    id: "modal-07",
+    category: "portfolio",
+    title: "Old Portfolio Website",
+    image: "/images/oldportfolio.jpg",
+    modalImage: "/images/oldportfolio.gif",
+    description:
       "A minimalist Portfolio website that includes appealing scroll animation.",
-    "stack": [
-      "HTML",
-      "CSS",
-      "PWA"
-    ],
-    "link": "https://bellohabeeb.vercel.app/",
-    "code": "https://github.com/Icekid35/portfolio"
-  },
-  
+    stack: ["HTML", "CSS", "PWA"],
+    link: "https://bellohabeeb.vercel.app/",
+    code: "https://github.com/Icekid35/portfolio"
+  }
   // Add more projects as needed
 ];
 
@@ -266,12 +259,13 @@ export default function Works() {
             onClick={() => openModal(project)}
           >
             <div className="w-1/2 relative flex h-full object-cover ">
-            <Image
-              src={project.image}
-              alt={project.title}
-              className="w-full max-w-full h-full  bg-gray-800  object-cover"
-              fill
-/></div>
+              <Image
+                src={project.image}
+                alt={project.title}
+                className="w-full max-w-full h-full  bg-gray-800  object-cover"
+                fill
+              />
+            </div>
             <div className="md:px-4 lg:px-4 px-2 w-1/2 gap-4  h-full flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-[var(--color-text-dark)]">
@@ -282,7 +276,10 @@ export default function Works() {
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
-                    <span key={tech} className="text-xl text-[var(--color-btn-primary-hover)] shadow-2xl">
+                    <span
+                      key={tech}
+                      className="text-xl text-[var(--color-btn-primary-hover)] shadow-2xl"
+                    >
                       {
                         technologies.find(
                           (t) => t.name.toLowerCase() == tech.toLowerCase()
@@ -293,12 +290,12 @@ export default function Works() {
                 </div>
               </div>
               <div>
-            <button 
-            title="View details"
-            
-            className=" hover:bg-amber-500 flex gap-1 md:w-full justify-center max-w-[200px] px-4 py-1 bg-[var(--color-btn-primary-hover)]  rounded-lg text-[var(--color-text-dark)] text-sm font-semibold">
-            Expand <FaExpand />
-          </button>
+                <button
+                  title="View details"
+                  className=" hover:bg-amber-500 flex gap-1 md:w-full justify-center max-w-[200px] px-4 py-1 bg-[var(--color-btn-primary-hover)]  rounded-lg text-[var(--color-text-dark)] text-sm font-semibold"
+                >
+                  Expand <FaExpand />
+                </button>
               </div>
             </div>
           </div>
@@ -315,13 +312,11 @@ export default function Works() {
       >
         {selectedProject && (
           <div className="max-h-screen flex flex-col p-6">
-                        <button
+            <button
               onClick={closeModal}
-            title="Close modal"
-
+              title="Close modal"
               className="text-right text-2xl mb-3 mt-3 flex w-full justify-end  cursor-pointer text-red-500  "
             >
-              
               <FaX />
             </button>
             <img
@@ -331,51 +326,53 @@ export default function Works() {
               loading="lazy"
             />
             <div>
-
-            <h3 className="text-2xl font-bold mt-4">{selectedProject.title}</h3>
-            <p className="text-gray-400 mt-2">{selectedProject.description}</p>
-            <ul className="flex flex-wrap space-x-2 gap-2 mt-3">
-              {selectedProject.stack.map((tag, index) => (
-                <li
-                  key={index}
-            title={tag}
-
-                  className="bg-[var(--color-btn-primary)] flex text-[var(--color-body)] font-semibold px-2 py-1 uppercase rounded text-[12px]"
-                >
-                  {
-                        technologies.find(
-                          (t) => t.name.toLowerCase() == tag.toLowerCase()
-                        )?.icon
-                      } {" "} {tag} 
-                </li>
-              ))}
-            </ul>
-            <div className="flex gap-2">
-          {selectedProject.code &&  <a
-              href={selectedProject.code}
-              className="text-[var(--color-btn-primary)] flex font-semibold mt-4 mb-6 "
-              target="_blank"
-              rel="noopener noreferrer"
-            title="Go to site"
-
-            >
-              View code{" "}<FaLink />
-            </a>}
-           {selectedProject.link && <a
-              href={selectedProject.link}
-              className="text-[var(--color-btn-primary)] flex font-semibold mt-4 mb-6 "
-              target="_blank"
-              rel="noopener noreferrer"
-            title="Go to site"
-
-            >
-              View Project{" "}<FaArrowTrendUp />
-            </a>}
-     
-           
+              <h3 className="text-2xl font-bold mt-4">
+                {selectedProject.title}
+              </h3>
+              <p className="text-gray-400 mt-2">
+                {selectedProject.description}
+              </p>
+              <ul className="flex flex-wrap space-x-2 gap-2 mt-3">
+                {selectedProject.stack.map((tag, index) => (
+                  <li
+                    key={index}
+                    title={tag}
+                    className="bg-[var(--color-btn-primary)] flex text-[var(--color-body)] font-semibold px-2 py-1 uppercase rounded text-[12px]"
+                  >
+                    {
+                      technologies.find(
+                        (t) => t.name.toLowerCase() == tag.toLowerCase()
+                      )?.icon
+                    }{" "}
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex gap-2">
+                {selectedProject.code && (
+                  <a
+                    href={selectedProject.code}
+                    className="text-[var(--color-btn-primary)] flex font-semibold mt-4 mb-6 "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Go to site"
+                  >
+                    View code <FaLink />
+                  </a>
+                )}
+                {selectedProject.link && (
+                  <a
+                    href={selectedProject.link}
+                    className="text-[var(--color-btn-primary)] flex font-semibold mt-4 mb-6 "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Go to site"
+                  >
+                    View Project <FaArrowTrendUp />
+                  </a>
+                )}
+              </div>
             </div>
-            </div>
-
           </div>
         )}
       </Modal>

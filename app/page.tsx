@@ -9,6 +9,7 @@ import Works from "./components/works";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 import AnimatedCursor from './components/AnimatedCursor';
+import Slider from './components/imagegallery';
 
 export default function Home() {
   return (
@@ -52,6 +53,7 @@ export default function Home() {
     <Intro />
     <About />
     <Works />
+    <Slider />
     <Contact />
   </Contents>
 <Footer />

@@ -1,0 +1,10 @@
+{
+   "name": "Bello Habeebullahi Ajetola portfolio",
+   "short_name": "Bello Habeebullahi",
+   "description": "Explore the portfolio of Bello Habeebullahi Ajetola, a skilled full-stack developer specializing in Node.js, Next.js, TypeScript, MongoDB, and blockchain technologies.",
+   "start_url": "/",
+   "display": "standalone",
+   "background_color": "#53350e",
+   "theme_color": "#f8c20d"
+ }
+ 
