@@ -4,7 +4,7 @@ import  "@google/model-viewer/lib/model-viewer";
 
 const Model = () => {
 
-  const glbSrc = "/models/avater.glb";
+  const glbSrc = "/models/compressed.glb";
 
   return (
    <model-viewer  src={glbSrc} ar ar-modes="webxr scene-viewer quick-look" className=" h-full w-full " camera-controls tone-mapping="neutral" poster="/images/poster.webp" style={{
