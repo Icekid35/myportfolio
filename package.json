@@ -6,14 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@google/model-viewer": "^1.12.1",
+    "@neondatabase/serverless": "^1.1.0",
+    "@prisma/adapter-neon": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "@react-three/drei": "^10.0.4",
     "@react-three/fiber": "^9.1.0",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
+    "heic2any": "^0.0.4",
+    "jose": "^6.2.2",
     "next": "15.2.2",
+    "prisma": "^7.8.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
@@ -31,6 +48,7 @@
     "@types/react-image-gallery": "^1.2.4",
     "@types/react-modal": "^3.16.3",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

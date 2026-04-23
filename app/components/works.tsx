@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import React from "react";
 import {
@@ -13,7 +13,7 @@ import {
   FaCss3Alt,
   FaPython,
   FaLink,
-  FaExpand
+  FaExpand,
 } from "react-icons/fa";
 import {
   TbBrandNextjs,
@@ -23,7 +23,7 @@ import {
   TbBrandMongodb,
   TbMarkdown,
   TbSeo,
-  TbBrandReactNative
+  TbBrandReactNative,
 } from "react-icons/tb";
 import {
   SiTypescript,
@@ -47,7 +47,7 @@ import {
   SiThreedotjs,
   SiEslint,
   SiClerk,
-  SiD3Dotjs
+  SiD3Dotjs,
 } from "react-icons/si";
 import { FaArrowTrendUp, FaX } from "react-icons/fa6";
 import Image from "next/image";
@@ -107,131 +107,58 @@ const technologies = [
   { name: "Clerk", icon: <SiClerk /> },
   { name: "Web RTC", icon: <SiWebrtc /> },
   { name: "SEO", icon: <TbSeo /> },
-  { name: "Prisma", icon: <SiPrisma /> }
+  { name: "Prisma", icon: <SiPrisma /> },
 ];
-const projects = [
-  {
-    id: "modal-01",
-    category: "Ecommerce",
-    title: "Next.js Commerce Platform",
-    image: "/images/ecormmerce.jpg",
-    modalImage: "/images/ecormmerce.gif",
-    description:
-      "A feature-rich e-commerce platform built with Next.js, TypeScript, and Tailwind CSS. It includes Google OAuth for user authentication and Prisma for database management, It also has a dedicated admin dashboard.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Google OAuth"],
-    link: "https://ecormmerce-psi.vercel.app/",
-    code: "https://github.com/Icekid35/ecormmerce"
-  },
-  {
-    id: "modal-02",
-    category: "Admin Dashboard",
-    title: "E-Commerce Admin Dashboard",
-    image: "/images/iceadmin.jpg",
-    modalImage: "/images/iceadmin.gif",
-    description:
-      "A comprehensive e-commerce admin dashboard built with Next.js, Tailwind CSS, and Clerk for authentication. Features include analytics, product management, and seamless integration with monnify for payment management.Modified  to Fit modern Ecormmerce Standard",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "Prisma"],
-    link: "https://iceadmin.vercel.app/",
-    code: "https://github.com/Icekid35/iceadmin"
-  },
 
-  {
-    id: "modal-04",
-    category: "Automation",
-    title: "Twitter Bot",
-    image: "/images/twitterbot.jpg",
-    modalImage: "/images/twitterbot.gif",
-    description:
-      "A Multipurpose twitter bot that allows user to add account and automate actions like liking, commenting, bookmarking and Retweeting, from all the account at the same time just by Pasting a Link to the required and the bot will automatically Perform the required action on all the account.",
-    stack: ["Node.js", "Puppeteer", "HTML", "CSS"],
-    code: "https://github.com/Icekid35/twitterbot"
-  },
-  {
-    id: "modal-08",
-    category: "Attendance Tracking",
-    title: "QR Attendance Tracking PWA",
-    image: "/images/qr-attendance.jpg",
-    modalImage: "/images/qr-attendance.gif",
-    description:
-      "A Progressive Web Application (PWA) for attendance tracking using QR codes. It allows students to mark attendance by scanning QR codes, while admins manage sessions, track attendance, and generate reports. Features include access control, QR code generation, and PDF export functionality.",
-    stack: [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Prisma",
-      "PostgreSQL",
-      "HTML5 QR Code",
-      "JSPDF"
-    ],
-    link: "https://ice-qr.vercel.app/",
-    code: "https://github.com/Icekid35/ice-qr"
-  },
-  {
-    id: "modal-05",
-    category: "E-Commerce",
-    title: "React E-Commerce Platform",
-    image: "/images/icecomerce.jpg",
-    modalImage: "/images/icecomerce.gif",
-    description:
-      "A sleek and functional e-commerce platform built with React, featuring Paystack payment integration, dynamic routing, and a user-friendly interface. It utilizes modern libraries for enhanced interactivity and performance.",
-    stack: [
-      "React",
-      "React Router DOM",
-      "Tailwind CSS",
-      "Paystack",
-      "React Helmet",
-      "Swiper",
-      "JWT Decode"
-    ],
-    link: "https://icecommerce-jet.vercel.app/",
-    code: "https://github.com/Icekid35/icecommerce"
-  },
-  {
-    id: "modal-06",
-    category: "portfolio",
-    title: "Wordpress UI/UX Portfolio site",
-    image: "/images/wordpress-portfolio.jpg",
-    modalImage: "/images/wordpress-portfolio.gif",
-    description:
-      "A mordern, asthetic portfolio website built with wordpress, consisting of awesome fonts, multiple pages and a dedicated Blog. ",
-    stack: ["Wordpress", "WP Form", "XAMPP"]
-  },
+type Project = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  modalImage: string;
+  link?: string | null;
+  code?: string | null;
+  stack: string[];
+};
 
-  {
-    id: "modal-07",
-    category: "portfolio",
-    title: "Old Portfolio Website",
-    image: "/images/oldportfolio.jpg",
-    modalImage: "/images/oldportfolio.gif",
-    description:
-      "A minimalist Portfolio website that includes appealing scroll animation.",
-    stack: ["HTML", "CSS", "PWA"],
-    link: "https://bellohabeeb.vercel.app/",
-    code: "https://github.com/Icekid35/portfolio"
-  },
-  {
-    id: "modal-03",
-    category: "Website",
-    title: "Steve Jobs Tribute Website",
-    image: "/images/steve-bio.jpg",
-    modalImage: "/images/steve-bio.gif",
-    description:
-      "A minimalist tribute website honoring Steve Jobs, designed with pure HTML and CSS. Inspired by Apple's design principles, the site features a clean black-and-white aesthetic, structured biography, achievements timeline, and an interactive image gallery.",
-    stack: ["HTML", "CSS", "Responsive Design"],
-    link: "https://steve-bio.vercel.app/",
-    code: "https://github.com/Icekid35/steve-bio"
-  },
-  // Add more projects as needed
-];
+function SkeletonCard() {
+  return (
+    <div className="bg-inherit rounded-lg p-0 md:p-4 overflow-hidden flex w-full animate-pulse">
+      <div className="w-1/2 bg-gray-800 rounded-lg min-h-[140px]" />
+      <div className="px-4 w-1/2 space-y-3">
+        <div className="h-5 bg-gray-700 rounded w-3/4" />
+        <div className="h-3 bg-gray-800 rounded w-1/2" />
+        <div className="flex gap-2 mt-2">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="h-5 w-5 bg-gray-700 rounded" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Works() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
 
-  const openModal = (project: (typeof projects)[0]) => {
+  useEffect(() => {
+    fetch("/api/projects")
+      .then((r) => r.json())
+      .then((data) => {
+        setProjects(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  const openModal = (project: Project) => {
     setSelectedProject(project);
+    setModalImageLoaded(false);
     setModalIsOpen(true);
   };
 
@@ -252,56 +179,70 @@ export default function Works() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-16 w-full  justify-between">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="bg-inherit  rounded-lg shadow-sm  p-0 md:p-4   overflow-hidden flex cursor-pointer w-full"
-            onClick={() => openModal(project)}
-          >
-            <div className="w-1/2 relative flex h-full object-cover ">
-              <Image
-                src={project.image}
-                alt={project.title}
-                className="w-full max-w-full h-full  bg-gray-800  object-cover"
-                fill
-              />
-            </div>
-            <div className="md:px-4 lg:px-4 px-2 w-1/2 gap-4  h-full flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-bold text-[var(--color-text-dark)]">
-                  {project.title}
-                </h3>
-                <span className="text-[12px] italic text-gray-400">
-                  {project.category}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xl text-[var(--color-btn-primary-hover)] shadow-2xl"
-                    >
-                      {
-                        technologies.find(
-                          (t) => t.name.toLowerCase() == tech.toLowerCase()
-                        )?.icon
-                      }
-                    </span>
-                  ))}
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full">
+          {[...Array(4)].map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
+      ) : projects.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-24 text-center">
+          <p className="text-gray-500 text-lg">No projects yet.</p>
+          <p className="text-gray-600 text-sm mt-2">Check back soon.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-16 w-full  justify-between">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-inherit  rounded-lg shadow-sm  p-0 md:p-4   overflow-hidden flex cursor-pointer w-full"
+              onClick={() => openModal(project)}
+            >
+              <div className="w-1/2 relative flex h-full object-cover ">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full max-w-full h-full  bg-gray-800  object-cover"
+                  fill
+                  unoptimized
+                />
+              </div>
+              <div className="md:px-4 lg:px-4 px-2 w-1/2 gap-4  h-full flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold text-[var(--color-text-dark)]">
+                    {project.title}
+                  </h3>
+                  <span className="text-[12px] italic text-gray-400">
+                    {project.category}
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xl text-[var(--color-btn-primary-hover)] shadow-2xl"
+                      >
+                        {
+                          technologies.find(
+                            (t) => t.name.toLowerCase() == tech.toLowerCase(),
+                          )?.icon
+                        }
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <button
+                    title="View details"
+                    className=" hover:bg-amber-500 flex gap-1 md:w-full justify-center max-w-[200px] px-4 py-1 bg-[var(--color-btn-primary-hover)]  rounded-lg text-[var(--color-text-dark)] text-sm font-semibold"
+                  >
+                    Expand <FaExpand />
+                  </button>
                 </div>
               </div>
-              <div>
-                <button
-                  title="View details"
-                  className=" hover:bg-amber-500 flex gap-1 md:w-full justify-center max-w-[200px] px-4 py-1 bg-[var(--color-btn-primary-hover)]  rounded-lg text-[var(--color-text-dark)] text-sm font-semibold"
-                >
-                  Expand <FaExpand />
-                </button>
-              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <Modal
         isOpen={modalIsOpen}
@@ -320,12 +261,44 @@ export default function Works() {
             >
               <FaX />
             </button>
-            <img
-              src={selectedProject.modalImage}
-              alt={selectedProject.title}
-              className="w-full rounded-lg flex-1 bg-gray-800 min-h-30 h-full"
-              loading="lazy"
-            />
+            <div className="relative w-full rounded-lg overflow-hidden min-h-[220px] bg-gray-800/60 flex items-center justify-center">
+              {!modalImageLoaded && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gray-800/80 rounded-lg z-10">
+                  <svg
+                    className="animate-spin text-gray-400"
+                    width="28"
+                    height="28"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    />
+                  </svg>
+                  <span className="text-xs text-gray-400">
+                    Loading preview...
+                  </span>
+                </div>
+              )}
+              <img
+                src={selectedProject.modalImage}
+                alt={selectedProject.title}
+                className={`w-full rounded-lg transition-opacity duration-300 ${modalImageLoaded ? "opacity-100" : "opacity-0"}`}
+                loading="lazy"
+                onLoad={() => setModalImageLoaded(true)}
+                onError={() => setModalImageLoaded(true)}
+              />
+            </div>
             <div>
               <h3 className="text-2xl font-bold mt-4">
                 {selectedProject.title}
@@ -342,7 +315,7 @@ export default function Works() {
                   >
                     {
                       technologies.find(
-                        (t) => t.name.toLowerCase() == tag.toLowerCase()
+                        (t) => t.name.toLowerCase() == tag.toLowerCase(),
                       )?.icon
                     }{" "}
                     {tag}

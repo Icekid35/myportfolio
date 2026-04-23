@@ -1,8 +1,50 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 const Footer: React.FC = () => {
+  const [stats, setStats] = useState({
+    projects: "50+",
+    clients: "30+",
+    years: "5+",
+  });
+
+  useEffect(() => {
+    fetch("/api/config")
+      .then((r) => r.json())
+      .then((d) => {
+        setStats({
+          projects: d.footer_projects || "50+",
+          clients: d.footer_clients || "30+",
+          years: d.footer_years || "5+",
+        });
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <footer className="relative text-gray-400 py-6 text-center">
+      {/* Stats Row */}
+      <div className="container mx-auto flex justify-center gap-10 mb-6 flex-wrap px-6">
+        <div className="text-center">
+          <p className="text-3xl font-bold text-white">{stats.projects}</p>
+          <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+            Projects
+          </p>
+        </div>
+        <div className="text-center">
+          <p className="text-3xl font-bold text-white">{stats.clients}</p>
+          <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+            Clients
+          </p>
+        </div>
+        <div className="text-center">
+          <p className="text-3xl font-bold text-white">{stats.years}</p>
+          <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">
+            Years Experience
+          </p>
+        </div>
+      </div>
+
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Copyright Section */}
         <div className="text-sm space-x-4">

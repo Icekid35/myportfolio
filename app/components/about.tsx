@@ -1,7 +1,7 @@
-"use client"
-import dynamic from "next/dynamic";
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import GLBViewer from "./3d";
 import {
   FaJs,
   FaNodeJs,
@@ -10,7 +10,7 @@ import {
   FaGithub,
   FaDocker,
   FaCss3Alt,
-  FaPython
+  FaPython,
 } from "react-icons/fa";
 import {
   TbBrandNextjs,
@@ -20,7 +20,7 @@ import {
   TbBrandMongodb,
   TbMarkdown,
   TbSeo,
-  TbBrandReactNative
+  TbBrandReactNative,
 } from "react-icons/tb";
 import {
   SiTypescript,
@@ -46,9 +46,6 @@ import {
   SiClerk,
   SiD3Dotjs,
 } from "react-icons/si";
-
-// Dynamically import the GLBViewer component (3d.js) only on the client-side.
-const GLBViewer = dynamic(() => import("./3d"), { ssr: false });
 
 const technologies = [
   // Core Languages & Frameworks
@@ -105,10 +102,31 @@ const technologies = [
   { name: "Clerk", icon: <SiClerk /> },
   { name: "Web RTC", icon: <SiWebrtc /> },
   { name: "SEO", icon: <TbSeo /> },
-  { name: "Prisma", icon: <SiPrisma /> }
+  { name: "Prisma", icon: <SiPrisma /> },
 ];
 
 function About() {
+  const [bio, setBio] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/config")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.about_bio) setBio(d.about_bio);
+      })
+      .catch(() => {});
+  }, []);
+
+  const defaultBio = `Hey there! I'm Bello Habeebullahi Ajetola, a passionate Full Stack Developer, Automation Engineer, and Web3 Innovator with a deep love for crafting high-performance web applications. With expertise in JavaScript, TypeScript, Node.js, React, Next.js, and cutting-edge technologies, I specialize in building scalable, efficient, and user-centric solutions.
+
+From developing powerful backends with Node.js & GraphQL to creating visually stunning UIs with Tailwind CSS & Three.js, I enjoy tackling complex challenges and delivering seamless digital experiences. My work isn't just about writing code—it's about engineering solutions that scale, automating workflows, and optimizing performance for real-world impact.
+
+Beyond coding, I explore AI, blockchain, and automation to push the boundaries of what's possible on the web. Whether it's deploying microservices with Docker & Nginx, building intelligent automation tools, or crafting interactive Web3 experiences, I'm always eager to experiment, learn, and innovate.
+
+🚀 Let's connect and build something amazing!`;
+
+  const displayBio = bio ?? defaultBio;
+
   return (
     <section id="about" className="py-16 text-white">
       {/* About Info Section */}
@@ -120,32 +138,29 @@ function About() {
 
         {/* Text Content */}
         <div className="md:w-1/2 w-full md:pl-10">
-          <h2 className="text-lg text-gray-400 uppercase tracking-widest">About</h2>
-          <div className="mt-4 text-lg leading-relaxed">
-            Hey there! I'm Bello Habeebullahi Ajetola, a passionate Full Stack Developer, Automation Engineer, and Web3 Innovator with a deep love for crafting high-performance web applications. With expertise in JavaScript, TypeScript, Node.js, React, Next.js, and cutting-edge technologies, I specialize in building scalable, efficient, and user-centric solutions.
-            <p className="mt-2">
-              From developing powerful backends with Node.js & GraphQL to creating visually stunning UIs with Tailwind CSS & Three.js, I enjoy tackling complex challenges and delivering seamless digital experiences. My work isn't just about writing code—it's about engineering solutions that scale, automating workflows, and optimizing performance for real-world impact.
-            </p>
-            <p className="mt-2">
-              Beyond coding, I explore AI, blockchain, and automation to push the boundaries of what's possible on the web. Whether it's deploying microservices with Docker & Nginx, building intelligent automation tools, or crafting interactive Web3 experiences, I'm always eager to experiment, learn, and innovate.
-            </p>
-            <p className="mt-2">
-              🚀 Let's connect and build something amazing!
-            </p>
+          <h2 className="text-lg text-gray-400 uppercase tracking-widest">
+            About
+          </h2>
+          <div className="mt-4 text-lg leading-relaxed whitespace-pre-line">
+            {displayBio}
           </div>
         </div>
       </div>
 
       {/* Expertise Section */}
       <div className="container mx-auto mt-16 md:px-8 lg:px-8 px-2">
-        <h2 className="text-lg text-gray-400 uppercase tracking-widest">Technologies</h2>
+        <h2 className="text-lg text-gray-400 uppercase tracking-widest">
+          Technologies
+        </h2>
         <ul className="mt-4 text-2xl flex flex-wrap gap-3">
           {technologies.map((tech, index) => (
             <div
               key={index}
               className="hoverable flex cursor-pointer hover:shadow-amber-50 items-center space-x-3 bg-inherit p-4 rounded-lg text-[var(--color-text-dark)] shadow-amber-500 shadow hover:shadow-2xl"
             >
-              <span className="text-3xl text-[var(--color-btn-primary)]">{tech.icon}</span>
+              <span className="text-3xl text-[var(--color-btn-primary)]">
+                {tech.icon}
+              </span>
               <span className="text-lg">{tech.name}</span>
             </div>
           ))}
