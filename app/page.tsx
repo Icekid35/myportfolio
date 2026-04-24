@@ -1,3 +1,4 @@
+"use client";
 import Preloader from './components/preloader';
 import Pagewrapper from "./components/pagewrapper";
 import Circles from "./components/circles";
