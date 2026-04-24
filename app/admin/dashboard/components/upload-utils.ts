@@ -1,5 +1,3 @@
-import { convertHeicToWebpOrJpg } from "./heic-convert";
-
 export async function readErrorMessage(response: Response) {
   const contentType = response.headers.get("content-type") || "";
 
@@ -22,12 +20,28 @@ export async function readErrorMessage(response: Response) {
 
 export async function uploadAsset(file: File, folder: string): Promise<string> {
   let uploadFile = file;
-  // Convert HEIC to webp or jpg before upload
-  if (file.type === "image/heic" || file.name.toLowerCase().endsWith(".heic")) {
-    const converted = await convertHeicToWebpOrJpg(file);
-    // Create a new File object for upload
-    uploadFile = new File([converted], file.name.replace(/\.heic$/i, ".webp"), {
-      type: converted.type || "image/webp",
+  // Only run HEIC conversion in the browser
+  if (
+    typeof window !== "undefined" &&
+    (file.type === "image/heic" || file.name.toLowerCase().endsWith(".heic"))
+  ) {
+    const heic2any = (await import("heic2any")).default;
+    let converted;
+    let outType = "image/webp";
+    let outExt = ".webp";
+    try {
+      converted = await heic2any({ blob: file, toType: "image/webp" });
+      // heic2any may return an array of Blobs
+      if (Array.isArray(converted)) converted = converted[0];
+      if (converted && converted.type) outType = converted.type;
+    } catch (err) {
+      converted = await heic2any({ blob: file, toType: "image/jpeg" });
+      if (Array.isArray(converted)) converted = converted[0];
+      outType = "image/jpeg";
+      outExt = ".jpg";
+    }
+    uploadFile = new File([converted], file.name.replace(/\.heic$/i, outExt), {
+      type: outType,
     });
   }
 
