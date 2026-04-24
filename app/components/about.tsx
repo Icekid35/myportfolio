@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import GLBViewer from "./3d";
+import dynamic from "next/dynamic";
+const GLBViewer = dynamic(() => import("./3d"), { ssr: false });
 import {
   FaJs,
   FaNodeJs,

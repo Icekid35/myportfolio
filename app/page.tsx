@@ -8,8 +8,9 @@ import About from "./components/about";
 import Works from "./components/works";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
-import AnimatedCursor from './components/AnimatedCursor';
-import Slider from './components/imagegallery';
+import dynamic from "next/dynamic";
+const AnimatedCursor = dynamic(() => import('./components/AnimatedCursor'), { ssr: false });
+const Slider = dynamic(() => import('./components/imagegallery'), { ssr: false });
 
 export default function Home() {
   return (
